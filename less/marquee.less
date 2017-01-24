@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+._marquee_content() {
+	
+}
+
+.marquee {
+	overflow: hidden;
+
+	&:before {
+		content: attr(data-marquee);
+		//&:extend(.marquee-content);
+		._marquee_content;
+	}
+}
+
+.marquee-content {
+	._marquee_content;
+}
+
+.marquee:before,
+.marquee-content {
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+	animation: linear infinite;
+	
+	@import 'marquee-direction';
+	@import 'marquee-durations';
+	@import 'marquee-movements';
+	
+	.marquee-speed-normal;
+	.marquee-movement-smooth;
+	.marquee-direction-normal;
+}
+
+
+
+
